@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Réécriture pour les fichiers PHP dans le dossier 'page'
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ pages/$1.php [L]
+# Authentification HTTP de base
+AuthType Basic
+AuthName "Accès restreint"
+AuthUserFile /Users/pierredenaes/Sites/php-base-algo/.htpasswd
+Require valid-user
